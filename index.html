@@ -92,8 +92,14 @@
         
 
         function MyApp() {
-            return <h1>Welcome to the Card Game!</h1>;
-        }
+    return (
+        <div>
+            <h1>Welcome to the Card Game!</h1>
+            <CardDeck/>
+        </div>
+    );
+}
+
         const container = document.getElementById('root');
         const root = ReactDOM.createRoot(container);
         root.render(<MyApp />);
