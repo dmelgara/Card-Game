@@ -107,7 +107,17 @@
         const dealCards = (count) => {
             const deckCopy = [...deck];
             const newCards = [];
-            const newCards = Deckcopy.splice(0, count);
+
+
+            for (let i = 0; i < count; i++){
+                const randIndex = Math.floor(Math.random() * deckCopy.length);
+                newCards.push(deckCopy.splice(randIndex, 1)[0]);
+            }
+
+
+            setDeck(newCards);
+            setDisplayedCards(newCards);
+        
         }
 
 
