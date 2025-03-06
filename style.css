@@ -1,4 +1,39 @@
 /* CSS stylesheet */
+.App {
+    background: linear-gradient(90deg, rgb(21, 68, 44) 0%, rgb(21, 54, 38) 0%, rgb(24, 53, 24) 100%);
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+
+.deck-container {
+    margin-bottom: 20px;
+}
+
+.deck-image {
+    width: 150px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: #ffffff;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}   
 .cardDeck img {
     width: 100px;          
     height: auto;          
@@ -20,4 +55,65 @@
     list-style: none;           
     padding: 0;                 
     justify-content: center;    
+}
+.Dealbtns{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+.Deal5btn{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.Deal5btn:hover {
+    background-color: #45a049;
+    transform: scale(1.02);
+}
+
+.Deal7btn{
+    background-color: #3f3f3f;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+}
+.Deal7btn:hover {
+    background-color: #303030;
+    transform: scale(1.02);
+}
+
+.Resetbtn{
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.Resetbtn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.02);
 }

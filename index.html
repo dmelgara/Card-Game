@@ -71,7 +71,10 @@
         { id: "10S",src: "images/spades/s10.png" },
         { id: "JS", src: "images/spades/s11.png" },
         { id: "QS", src: "images/spades/s12.png" },
-        { id: "KS", src: "images/spades/s13.png" }
+        { id: "KS", src: "images/spades/s13.png" },
+
+
+        {id: "Deck", src: "images/deckdown.jpg"}
     ];
 
 
@@ -86,7 +89,9 @@
         const [pickedCard, setPickedCard] = React.useState(null);
 
 
-        
+        function DeckClick() {
+            const realDeck = deck.filter();
+        }
         // Log to see if states are working
         // console.log("Deck:", deck);
         // console.log("Displayed Cards:", displayedCards);
@@ -130,10 +135,24 @@
 
     return (
         <div>
-            <button onClick={() => dealCards(5)}>Deal 5 Cards</button>
-            <button onClick={() => dealCards(7)}>Deal 7 Cards</button>
-            <button onClick={() => setDisplayedCards([])}>Reset</button>
+            <div className="deck-container">
+            {deck.filter(c => c.id !== "Deck").length > 0 ? (
+              <img
+                src={deck.find(c => c.id === "Deck").src}
+                alt="Deck"
+                className="deck-image"
+                onClick={DeckClick}
+              />
+            ) : (
+              <div style={{ color: "#fff" }}>No Cards Remaining</div>
+            )}
+          </div>
 
+            <div className="Dealbtns">
+                <button className="Deal5btn" onClick={() => dealCards(5)}>Deal 5 Cards</button>
+                <button className="Deal7btn" onClick={() => dealCards(7)}>Deal 7 Cards</button>
+                <button className="Resetbtn" onClick={() => setDisplayedCards([])}>Reset</button>
+            </div>
             <ul className="cardDeck">
                 {displayedCards.map((card) => (
                     <li key={card.id}>
@@ -152,7 +171,7 @@
 
     function MyApp() {
     return (
-        <div>
+        <div className="App">
             <h1>Welcome to the Card Game!</h1>
             <CardDeck/>
         </div>
