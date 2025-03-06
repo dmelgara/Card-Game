@@ -1,0 +1,23 @@
+/* CSS stylesheet */
+.cardDeck img {
+    width: 100px;          
+    height: auto;          
+    border-radius: 5px;    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  
+    margin: 5px;   
+    transition: transform 0.3s;        
+}
+.cardDeck img:hover {
+    transform: scale(1.1); 
+    display: flex;
+    
+
+}
+.cardDeck {
+    display: flex;              
+    flex-wrap: wrap;            
+    gap: 10px;                  
+    list-style: none;           
+    padding: 0;                 
+    justify-content: center;    
+}
