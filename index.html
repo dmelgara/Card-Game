@@ -14,64 +14,64 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-    const cardImages = {
-        //Bug with the images not displaying
-        "AC": "./clubs/c01.png",
-        "2C": "./clubs/c02.png",
-        "3C": "./clubs/c03.png",
-        "4C": "./clubs/c04.png",
-        "5C": "./clubs/c05.png",
-        "6C": "./clubs/c06.png",
-        "7C": "./clubs/c07.png",
-        "8C": "./clubs/c08.png",
-        "9C": "./clubs/c09.png",
-        "10C": "./clubs/c10.png",
-        "JC": "./clubs/c11.png",
-        "QC": "./clubs/c12.png",
-        "KC": "./clubs/c13.png",
+    const cardImages = [
+        { id: "AC", src: "./images/clubs/c01.png" },
+        { id: "2C", src: "./images/clubs/c02.png" },
+        { id: "3C", src: "./images/clubs/c03.png" },
+        { id: "4C", src: "./images/clubs/c04.png" },
+        { id: "5C", src: "./images/clubs/c05.png" },
+        { id: "6C", src: "./images/clubs/c06.png" },
+        { id: "7C", src: "./images/clubs/c07.png" },
+        { id: "8C", src: "./images/clubs/c08.png" },
+        { id: "9C", src: "./images/clubs/c09.png" },
+        { id: "10C", src: "./images/clubs/c10.png" },
+        { id: "JC", src: "./images/clubs/c11.png" },
+        { id: "QC", src: "./images/clubs/c12.png" },
+        { id: "KC", src: "./images/clubs/c13.png" },
 
-        "AD": "./diamonds/d01.png",
-        "2D": "./diamonds/d02.png",
-        "3D": "./diamonds/d03.png",
-        "4D": "./diamonds/d04.png",
-        "5D": "./diamonds/d05.png",
-        "6D": "./diamonds/d06.png",
-        "7D": "./diamonds/d07.png",
-        "8D": "./diamonds/d08.png",
-        "9D": "./diamonds/d09.png",
-        "10D": "./diamonds/d10.png",
-        "JD": "./diamonds/d11.png",
-        "QD": "./diamonds/d12.png",
-        "KD": "./diamonds/d13.png",
+        { id: "AD", src: "./images/diamonds/d01.png" },
+        { id: "2D", src: "./images/diamonds/d02.png" },
+        { id: "3D", src: "./images/diamonds/d03.png" },
+        { id: "4D", src: "./images/diamonds/d04.png" },
+        { id: "5D", src: "./images/diamonds/d05.png" },
+        { id: "6D", src: "./images/diamonds/d06.png" },
+        { id: "7D", src: "./images/diamonds/d07.png" },
+        { id: "8D", src: "./images/diamonds/d08.png" },
+        { id: "9D", src: "./images/diamonds/d09.png" },
+        { id: "10D", src: "./images/diamonds/d10.png" },
+        { id: "JD", src: "./images/diamonds/d11.png" },
+        { id: "QD", src: "./images/diamonds/d12.png" },
+        { id: "KD", src: "./images/diamonds/d13.png" },
 
-        "AH": "./hearts/h01.png",
-        "2H": "./hearts/h02.png",
-        "3H": "./hearts/h03.png",
-        "4H": "./hearts/h04.png",
-        "5H": "./hearts/h05.png",
-        "6H": "./hearts/h06.png",
-        "7H": "./hearts/h07.png",
-        "8H": "./hearts/h08.png",
-        "9H": "./hearts/h09.png",
-        "10H": "./hearts/h10.png",
-        "JH": "./hearts/h11.png",
-        "QH": "./hearts/h12.png",
-        "KH": "./hearts/h13.png",
+        { id: "AH", src: "./images/hearts/h01.png" },
+        { id: "2H", src: "./images/hearts/h02.png" },
+        { id: "3H", src: "./images/hearts/h03.png" },
+        { id: "4H", src: "./images/hearts/h04.png" },
+        { id: "5H", src: "./images/hearts/h05.png" },
+        { id: "6H", src: "./images/hearts/h06.png" },
+        { id: "7H", src: "./images/hearts/h07.png" },
+        { id: "8H", src: "./images/hearts/h08.png" },
+        { id: "9H", src: "./images/hearts/h09.png" },
+        { id: "10H", src: "./images/hearts/h10.png" },
+        { id: "JH", src: "./images/hearts/h11.png" },
+        { id: "QH", src: "./images/hearts/h12.png" },
+        { id: "KH", src: "./images/hearts/h13.png" },
 
-        "AS": "./spades/s01.png",
-        "2S": "./spades/s02.png",
-        "3S": "./spades/s03.png",
-        "4S": "./spades/s04.png",
-        "5S": "./spades/s05.png",
-        "6S": "./spades/s06.png",
-        "7S": "./spades/s07.png",
-        "8S": "./spades/s08.png",
-        "9S": "./spades/s09.png",
-        "10S": "./spades/s10.png",
-        "JS": "./spades/s11.png",
-        "QS": "./spades/s12.png",
-        "KS": "./spades/s13.png",
-    };
+        { id: "AS", src: "./images/spades/s01.png" },
+        { id: "2S", src: "./images/spades/s02.png" },
+        { id: "3S", src: "./images/spades/s03.png" },
+        { id: "4S", src: "./images/spades/s04.png" },
+        { id: "5S", src: "./images/spades/s05.png" },
+        { id: "6S", src: "./images/spades/s06.png" },
+        { id: "7S", src: "./images/spades/s07.png" },
+        { id: "8S", src: "./images/spades/s08.png" },
+        { id: "9S", src: "./images/spades/s09.png" },
+        { id: "10S", src: "./images/spades/s10.png" },
+        { id: "JS", src: "./images/spades/s11.png" },
+        { id: "QS", src: "./images/spades/s12.png" },
+        { id: "KS", src: "./images/spades/s13.png" }
+    ];
+
 
         function Card() {
             const [card, setCard] = React.useState(0);
@@ -79,12 +79,17 @@
         }
 
         function CardDeck(Card){
-            const [deck, setDeck] = React.useState(0);
+            return (
+                <ul className = "cardDeck">
+                    {cardImages.map((card) => (
+                        <li key={card.id}>
+                            <img src={card.src} alt={card.id} />
+                        </li>
+                    ))}
+                </ul>
+            )
         }
-        const cardItems = cardImages.map((card) => {
-            return <ul> {cardItems} </ul>           
-        });
-
+        
 
         function MyApp() {
             return <h1>Welcome to the Card Game!</h1>;
