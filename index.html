@@ -73,22 +73,50 @@
     ];
 
 
-        function Card() {
-            const [card, setCard] = React.useState(0);
-            
-        }
+    function Card() {
+        const [card, setCard] = React.useState(0);
+        
+    }
 
     function CardDeck() {
         const [deck, setDeck] = React.useState(cardImages);  
         const [displayedCards, setDisplayedCards] = React.useState([]);  
-        const [pickedCard, setPickedCard] = React.useState(null);  
+        const [pickedCard, setPickedCard] = React.useState(null);
 
+
+        
         // Log to see if states are working
         console.log("Deck:", deck);
         console.log("Displayed Cards:", displayedCards);
         console.log("Picked Card:", pickedCard);
 
-        return (
+        //displays first 5 cards 
+        React.useEffect(() => {
+            setDisplayedCards(deck.slice(0, 5));
+        }, [deck]);
+
+        const drawCard = () => {
+            const randomIndex = Math.floor(Math.random() * deck.length);
+            const newDeck = [...deck];
+            const card = newDeck.splice(randomIndex, 1)[0];  
+
+            setDeck(newDeck);
+            setDisplayedCards([...displayedCards, card]);
+        };
+
+        const dealCards = (count) => {
+            const deckCopy = [...deck];
+            const newCards = [];
+            const newCards = Deckcopy.splice(0, count);
+        }
+
+
+    return (
+        <div>
+            <button onClick={() => dealCards(5)}>Deal 5 Cards</button>
+            <button onClick={() => dealCards(7)}>Deal 7 Cards</button>
+            <button onClick={() => setDisplayedCards([])}>Reset</button>
+
             <ul className="cardDeck">
                 {displayedCards.map((card) => (
                     <li key={card.id}>
@@ -96,8 +124,12 @@
                     </li>
                 ))}
             </ul>
-        );
-}
+        </div>
+    );
+
+    }   
+    
+  
 
         
 
