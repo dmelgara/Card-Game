@@ -90,10 +90,10 @@
         console.log("Displayed Cards:", displayedCards);
         console.log("Picked Card:", pickedCard);
 
-        //displays first 5 cards 
-        React.useEffect(() => {
-            setDisplayedCards(deck.slice(0, 5));
-        }, [deck]);
+        // //displays first 5 cards (causing the bug)
+        // React.useEffect(() => {
+        //     setDisplayedCards(deck.slice(0, 5));
+        // }, [deck]);
 
         const drawCard = () => {
             const randomIndex = Math.floor(Math.random() * deck.length);
@@ -105,6 +105,7 @@
         };
 
         const dealCards = (count) => {
+            //Bug found, not dealing 7 cards as intended
             const deckCopy = [...deck];
             const newCards = [];
 
