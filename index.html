@@ -78,20 +78,30 @@
             
         }
 
-        function CardDeck(Card){
-            return (
-                <ul className = "cardDeck">
-                    {cardImages.map((card) => (
-                        <li key={card.id}>
-                            <img src={card.src} alt={card.id} />
-                        </li>
-                    ))}
-                </ul>
-            )
-        }
+    function CardDeck() {
+        const [deck, setDeck] = React.useState(cardImages);  
+        const [displayedCards, setDisplayedCards] = React.useState([]);  
+        const [pickedCard, setPickedCard] = React.useState(null);  
+
+        // Log to see if states are working
+        console.log("Deck:", deck);
+        console.log("Displayed Cards:", displayedCards);
+        console.log("Picked Card:", pickedCard);
+
+        return (
+            <ul className="cardDeck">
+                {displayedCards.map((card) => (
+                    <li key={card.id}>
+                        <img src={card.src} alt={card.id} />
+                    </li>
+                ))}
+            </ul>
+        );
+}
+
         
 
-        function MyApp() {
+    function MyApp() {
     return (
         <div>
             <h1>Welcome to the Card Game!</h1>
