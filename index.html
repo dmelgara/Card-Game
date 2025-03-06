@@ -88,9 +88,9 @@
 
         
         // Log to see if states are working
-        console.log("Deck:", deck);
-        console.log("Displayed Cards:", displayedCards);
-        console.log("Picked Card:", pickedCard);
+        // console.log("Deck:", deck);
+        // console.log("Displayed Cards:", displayedCards);
+        // console.log("Picked Card:", pickedCard);
 
         // //displays first 5 cards (causing the bug)
         // React.useEffect(() => {
@@ -114,14 +114,18 @@
 
             for (let i = 0; i < count; i++){
                 const randIndex = Math.floor(Math.random() * deckCopy.length);
-                newCards.push(deckCopy.splice(randIndex, 1)[0]);
+                const drawnCard = deckCopy.splice(randIndex, 1)[0];
+
+                if (!drawnCard) {
+                console.log("Tried to access an undefined card. Stopping deal.");
+                return;
             }
-
-
-            setDeck(newCards);
-            setDisplayedCards(newCards);
-        
+            newCards.push(drawnCard);
         }
+        setDeck(deckCopy);
+        setDisplayedCards(newCards);
+        
+    };
 
 
     return (
