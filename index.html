@@ -114,7 +114,7 @@
           setPickedCard(null);
         };
 
-        const onCardClick = (card, index) => {
+        const CardClick = (card, index) => {
           if (!pickedCard) {
             setPickedCard({ card, index });
           } else {
@@ -129,6 +129,30 @@
               setPickedCard(null);
             }
           }
+        };
+
+        const addWildcard = () => {
+          const suits = ["C", "D", "H", "S"];
+          const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+          const s = suits[Math.floor(Math.random() * suits.length)];
+          const v = values[Math.floor(Math.random() * values.length)];
+          const newId = v + s;
+          const found = cardImages.find(c => c.id === newId);
+          let newCard;
+          if (found) {
+              newCard = { ...found };
+          } else {
+              newCard = { id: newId, src: "" };
+          }
+
+          setDisplayedCards([...displayedCards, newCard]);
+        };
+
+        const tossCard = () => {
+          if (!pickedCard) return;
+          const filtered = displayedCards.filter((_, i) => i !== pickedCard.index);
+          setDisplayedCards(filtered);
+          setPickedCard(null);
         };
 
         const regroupCards = () => {
@@ -175,6 +199,8 @@
               <button className="Deal5btn" onClick={() => dealCards(5)}>Deal 5 Cards</button>
               <button className="Deal7btn" onClick={() => dealCards(7)}>Deal 7 Cards</button>
               <button className="Resetbtn" onClick={resetDeck}>Reset</button>
+              <button className="Tossbtn" onClick={tossCard}>Toss</button>
+              <button className="Wildcardbtn" onClick={addWildcard}>Wildcard</button>
               <button className="Regroupbtn" onClick={regroupCards}>Regroup</button>
             </div>
             <ul className="cardDeck">
@@ -182,7 +208,7 @@
                 <Card
                   key={i}
                   card={c}
-                  onClick={() => onCardClick(c, i)}
+                  onClick={() => CardClick(c, i)}
                   isPicked={pickedCard && pickedCard.index === i}
                 />
               ))}
