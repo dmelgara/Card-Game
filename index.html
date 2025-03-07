@@ -77,10 +77,17 @@
 
     function Card({ card, onClick, isPicked }) {
       return (
-        <li onClick={onClick}>
-          <img src={card.src} alt={card.id} className={isPicked ? "picked" : ""} />
-        </li>
-      );
+    <li onClick={onClick}>
+        {(() => {
+            if (isPicked) {
+                return <img src={card.src} alt={card.id} className="picked" />;
+            } else {
+                return <img src={card.src} alt={card.id} className="" />;
+            }
+        })()}
+    </li>
+);
+
     }
 
     function CardDeck() {
@@ -100,19 +107,20 @@
     
 
 
-        const dealCards = (count) => {
-          let combined = [...deck, ...displayedCards];
-          if (combined.length < count) return;
-          const fresh = [];
-          for (let i = 0; i < count; i++) {
-            const c = Math.floor(Math.random() * combined.length);
-            const d = combined.splice(c, 1)[0];
-            fresh.push(d);
-          }
-          setDeck(combined);
-          setDisplayedCards(fresh);
-          setPickedCard(null);
-        };
+      const dealCards = (count) => {
+        let combinedCards = [...deck, ...displayedCards];
+        if (combinedCards.length < count) return;
+        const freshCards = [];
+        for (let i = 0; i < count; i++) {
+          const randomIndex = Math.floor(Math.random() * combinedCards.length);
+          const drawnCard = combinedCards.splice(randomIndex, 1)[0];
+          freshCards.push(drawnCard);
+        }
+        setDeck(combinedCards);
+        setDisplayedCards(freshCards);
+        setPickedCard(null);
+      };
+
 
         const CardClick = (card, index) => {
           if (!pickedCard) {
@@ -134,19 +142,19 @@
         const addWildcard = () => {
           const suits = ["C", "D", "H", "S"];
           const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-          const s = suits[Math.floor(Math.random() * suits.length)];
-          const v = values[Math.floor(Math.random() * values.length)];
-          const newId = v + s;
-          const found = cardImages.find(c => c.id === newId);
+          const randomSuit = suits[Math.floor(Math.random() * suits.length)];
+          const randomValue = values[Math.floor(Math.random() * values.length)];
+          const newId = randomValue + randomSuit;
+          const found = cardImages.find(card => card.id === newId);
           let newCard;
           if (found) {
-              newCard = { ...found };
+            newCard = { ...found };
           } else {
-              newCard = { id: newId, src: "" };
+            newCard = { id: newId, src: "" };
           }
-
           setDisplayedCards([...displayedCards, newCard]);
         };
+
 
         const tossCard = () => {
           if (!pickedCard) return;
@@ -204,25 +212,18 @@
               <button className="Regroupbtn" onClick={regroupCards}>Regroup</button>
             </div>
             <ul className="cardDeck">
-              {displayedCards.map((c, i) => (
+              {displayedCards.map((card, index) => (
                 <Card
-                  key={i}
-                  card={c}
-                  onClick={() => CardClick(c, i)}
-                  isPicked={pickedCard && pickedCard.index === i}
+                  key={index}
+                  card={card}
+                  onClick={() => CardClick(card, index)}
+                  isPicked={pickedCard && pickedCard.index === index}
                 />
               ))}
             </ul>
           </div>
         );
     }
-
-  
-    
-  
-
-        
-
     function MyApp() {
     return (
         <div className="App">
